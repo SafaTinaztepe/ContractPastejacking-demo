@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pastejacking-dev-113611-authRole",
+      "UnauthRoleArn": "arn:aws:iam::993124166330:role/amplify-pastejacking-dev-113611-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::993124166330:role/amplify-pastejacking-dev-113611-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-pastejacking-dev-113611-deployment",
+      "UnauthRoleName": "amplify-pastejacking-dev-113611-unauthRole",
+      "StackName": "amplify-pastejacking-dev-113611",
+      "StackId": "arn:aws:cloudformation:us-east-1:993124166330:stack/amplify-pastejacking-dev-113611/c95b8ef0-60e9-11ec-83f8-12a3e6cf5c21",
+      "AmplifyAppId": "d3k97esa7rjp9w"
+    }
+  }
+}

@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.TargetArea {
+  margin-left: 20px;
+  display: block;
+}
+
+.SideBySide {
+  display: flex;
+  margin-left: 20%;
+  margin-top: 20%;
+}
+
+.InstructionStep {
+  /* display: block; */
+  background-color: bisque;
+  min-height: 50px;
+  margin: 10px auto;
+  align-items: left;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.InstructionStep .head {
+  position: relative;
+  /* text-align: left; */
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }
