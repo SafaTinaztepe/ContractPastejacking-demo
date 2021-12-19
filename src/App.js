@@ -14,7 +14,7 @@ function App() {
     return (
       <div className="TargetArea">
         Paste Field
-        <input style={{"marginLeft": "20px"}} type="text"></input>
+        <input size={50} style={{"marginLeft": "20px"}} type="text"></input>
       </div>
     )
   }
@@ -79,7 +79,7 @@ function App() {
     {
       text: "Connect to the Ethereum Blockchain",
       subtext: "Connect using MetaMask",
-      children: <Chain handleSetAccount={handleSetAccount}/>
+      // children: <Chain handleSetAccount={handleSetAccount}/>
     },
     {
       text: "Source Address",
