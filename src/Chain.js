@@ -26,24 +26,35 @@ const getLibrary = (provider) => {
 const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] })
 
 const Chain = (props) => {
-  console.log(props)
-    return (
-        <Web3ReactProvider getLibrary={getLibrary}>
-            <_Chain filterAttributes={props.filterAttributes} setContract={props.setContract}/>
-        </Web3ReactProvider>
-    )
+  return (
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <_Chain handleSetAccount={props.handleSetAccount} setContract={props.setContract}/>
+    </Web3ReactProvider>
+  )
 }
 
 const _Chain = (props) => {
-    const context = useWeb3React();
-    let { 
-      chainId, 
-      account, 
-      library, 
-      activate, 
-      deactivate, 
-      active 
-    } = context;
+
+  
+  
+  const context = useWeb3React();
+  let { 
+    chainId, 
+    account, 
+    library, 
+    activate, 
+    deactivate, 
+    active 
+  } = context;
+
+  useEffect(() => {
+    if(account)
+      props.handleSetAccount(account);
+    return () => {
+    }
+  }, [account])
+  
+  
     
     let [blockNumber, setBlockNumber] = useState();
     let [ethBalance, setEthBalance] = useState();
@@ -53,9 +64,11 @@ const _Chain = (props) => {
     const updateBlockNumber = (blockNumber) =>  {
       setBlockNumber(blockNumber);
     };
+
     const updateEthBalance = (balance) =>  {
       setEthBalance(balance);
     };
+
     const getBlockNumber = () => {
       if (library){
         let stale = false;
@@ -114,6 +127,8 @@ const _Chain = (props) => {
       return account
     }
 
+    
+
     // const getContract = () => {
     //   if (library) {
     //     const signer = library.getSigner(account)
@@ -170,12 +185,6 @@ const _Chain = (props) => {
       6: "Kotti",
       212: "Astor",
     }
-    let a = Object.keys(chainOptions)
-    .filter((attribute) => {
-      console.log("GetAccount" in props.filterAttributes)
-      return attribute in props.filterAttributes
-    })
-    console.log(a)
     
     return (
       <>
@@ -185,13 +194,19 @@ const _Chain = (props) => {
             <div>
               <span className="emoji">✅ </span>
               <span>Network: {networkMap[chainId]}</span>
-              {console.log(chainId)}
               <button onClick={deactivateConnector}>Disconnect</button>
             </div> 
             : 
             <div>
               <span className="emoji">❌ </span>
-              <button onClick={activateConnector}>Connect</button>
+              <button onClick={
+                () => {
+                  activateConnector()
+                  
+                }
+              }
+              >
+              Connect</button>
             </div> 
           }
         </h4>
